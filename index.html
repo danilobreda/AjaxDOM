@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<body id="body">
+
+<div id="dom"><h2>BEM VINDO</h2></div>
+
+<button type="button" onclick="carregar()">Mudar DOM</button>
+
+<script>
+function carregar() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+  document.getElementById("dom").innerHTML = "<h1>CARREGANDO...</h1>";
+	if (this.readyState == 4 && this.status == 200)
+	{	
+		document.getElementById("body").innerHTML = this.responseText;
+	}
+  };
+  xhttp.open("GET", "menu.html", true);
+  xhttp.send();
+}
+</script>
+
+</body>
+</html>
